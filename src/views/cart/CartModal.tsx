@@ -5,7 +5,7 @@ interface CartItem {
   name: string
   price: number
   quantity: number
-  image: string
+  images: string
 }
 
 interface CartModalProps {
@@ -38,13 +38,13 @@ export const CartModal: React.FC<CartModalProps> = ({ isOpen, onClose, cartItems
             {cartItems.map((item) => (
               <div key={item.id} className="flex items-center border-b border-gray-200 py-4">
                 <img
-                  src={item.image || "/placeholder.svg"}
+                  src={item.images || "/placeholder.svg"}
                   alt={item.name}
                   className="w-20 h-20 object-cover rounded"
                 />
                 <div className="ml-4 flex-grow">
                   <h3 className="font-semibold text-[var(--tx-color2)]">{item.name}</h3>
-                  <p className="text-gray-600">${item.price.toFixed(2)}</p>
+                  <p className="text-gray-600">Bs {item.price.toFixed(2)}</p>
                   <div className="flex items-center mt-2">
                     <button
                       onClick={() => onUpdateQuantity(item.id, Math.max(1, item.quantity - 1))}
@@ -69,7 +69,7 @@ export const CartModal: React.FC<CartModalProps> = ({ isOpen, onClose, cartItems
             <div className="mt-6">
               <div className="flex justify-between items-center font-bold text-lg">
                 <span>Total:</span>
-                <span className="text-[var(--tx-color2)]">${total.toFixed(2)}</span>
+                <span className="text-[var(--tx-color2)]">Bs {total.toFixed(2)}</span>
               </div>
               <button className="w-full mt-4 bg-[var(--tx-color2)] text-white px-4 py-2 rounded hover:bg-[var(--tx-hover)] transition-colors">
                 Proceder al pago

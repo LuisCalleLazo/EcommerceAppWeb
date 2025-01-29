@@ -11,14 +11,14 @@ export const LayoutDashboard = ({ children }: { children: ReactNode }) => {
       <HeadDashboard />
 
       {/* Contenido principal */}
-      <div className="h-[90vh] flex flex-row">
+      <div className="h-[83vh] flex flex-row">
         {/* Sidebar */}
-        <div className="w-[20%] relative overflow-auto border-r-2">
+        <div className="w-[19%] relative overflow-auto border-r-2">
           <SidebarDashboard />
         </div>
 
         {/* Contenido */}
-        <div className="w-auto relative overflow-auto p-4">
+        <div className="w-[81%] relative overflow-auto p-4">
           {children}
         </div>
       </div>

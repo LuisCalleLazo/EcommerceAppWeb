@@ -15,21 +15,29 @@ export interface FilterCategory {
 export const ecommerceFilters: FilterCategory[] = [
   {
     id: "price",
-    name: "Precio",
-    options: [{ id: "price-range", label: "Rango de precio", type: "range", min: 0, max: 1000 }],
+    name: "Price",
+    options: [
+      {
+        id: "priceRange",
+        label: "Price range",
+        type: "range",
+        min: 0,
+        max: 1000,
+      },
+    ],
   },
   {
     id: "brand",
     name: "Marca",
     options: [
-      { id: "apple", label: "Apple", type: "checkbox" },
-      { id: "samsung", label: "Samsung", type: "checkbox" },
-      { id: "nike", label: "Nike", type: "checkbox" },
-      { id: "adidas", label: "Adidas", type: "checkbox" },
-      { id: "apple", label: "Apple", type: "checkbox" },
-      { id: "samsung", label: "Samsung", type: "checkbox" },
-      { id: "nike", label: "Nike", type: "checkbox" },
-      { id: "adidas", label: "Adidas", type: "checkbox" },
+      { id: "brand1", label: "Apple", type: "checkbox" },
+      { id: "brand2", label: "Samsung", type: "checkbox" },
+      { id: "brand3", label: "Nike", type: "checkbox" },
+      { id: "brand4", label: "Adidas", type: "checkbox" },
+      { id: "brand5", label: "Amdroid", type: "checkbox" },
+      { id: "brand6", label: "Nokia", type: "checkbox" },
+      { id: "brand7", label: "MSI", type: "checkbox" },
+      { id: "brand8", label: "HP", type: "checkbox" },
     ],
   },
   {

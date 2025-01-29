@@ -13,13 +13,13 @@ export const BtnText = (props: BtnTextProp) =>
   const styleBtnText = 
   {
     width : props.width ?? '180px',
-    backgroundColor: props.bg ?? "#400",
+    backgroundColor: props.bg ?? "var(--bg-color)",
     color: "#fff",
     padding: "10px 13px 10px 13px",
   }
 
   return (
-      <button onClick={props.onClick} style={styleBtnText} className="rounded-lg font-bold hover:scale-105 duration-150 ease-in-out">
+      <button onClick={props.onClick} style={styleBtnText} className="rounded-lg font-bold hover:scale-125 duration-110 ease-in-out cursor-pointer">
         {props.children}
       </button>
   );

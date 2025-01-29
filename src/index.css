@@ -16,15 +16,15 @@
 base {
     :root {
       --bg-color: #000;
-      --bg-color2: #111250;
+      --bg-color2: #102d827b;
       --bg-color3: #17788F;
       --bg-color4: linear-gradient(to bottom right, #111250, 70%, #17788F67);
       --bg-color5: linear-gradient(180deg, #111250, 75%, #17788Fff);
       --bg-target: #11114422;
       --tx-color: #fff;
       /* --tx-color2: #17f88F; */
-      --tx-color2: #ffaa00;
-      --tx-hover: #ff8800;
+      --tx-color2: #00aa00; /* Verde brillante */
+      --tx-hover: #008800;  /* Verde más oscuro para el hover */
       --txt2-color: #222;
       --btn-cancel: #259;
       --btn-hover: #259;

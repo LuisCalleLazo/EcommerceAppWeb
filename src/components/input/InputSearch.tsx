@@ -1,58 +1,72 @@
-import React, { useState } from 'react';
+import type React from "react"
+import { useState } from "react"
+import { ChevronDownIcon } from "lucide-react"
 
 interface InputSearchProps {
-  placeholder: string;
-  value: string;
-  label?: string;
-  width: string;
-  icon?: string;
-  setValue: (val: string) => void;
-  onSearch: (val: string) => void;
+  placeholder: string
+  value: string
+  label?: string
+  width: string
+  icon?: string
+  setValue: (val: string) => void
+  onSearch: (val: string) => void
+  options: {id: number, name: string}[]
 }
 
 export const InputSearch = (props: InputSearchProps) => {
-  const [isFocused, setIsFocused] = useState(false);
-
-  const styleInput = {
-    width: props.width ?? "250px",
-    borderColor: isFocused ? 'blue' : 'gray',
-  };
+  const [isFocused, setIsFocused] = useState(false)
+  const [selectedOption, setSelectedOption] = useState(props.options[0])
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      props.onSearch(props.value);
+    if (e.key === "Enter") {
+      props.onSearch(props.value)
     }
-  };
+  }
 
   return (
-    <div className="p-2 h-[55px] bg-white rounded-2xl">
+    <div className="p-2 bg-white rounded-2xl flex flex-row items-center space-x-2">
       {props.label && (
-        <div className="mb-4">
-          <label className="font-bold text-black flex justify-start items-center">
-            {props.icon && <i className={`${props.icon} text-2xl px-3`}></i>}
-            <p>{props.label}</p>
-          </label>
+        <div className="flex items-center">
+          {props.icon && <i className={`${props.icon} text-2xl px-3`}></i>}
+          <p className="font-bold text-black">{props.label}</p>
         </div>
       )}
-      <div className="flex justify-center items-center">
-        <input
-          type="text"
-          value={props.value}
-          onChange={(e) => props.setValue(e.target.value)}
-          onFocus={() => setIsFocused(true)}
-          onBlur={() => setIsFocused(false)}
-          onKeyPress={handleKeyPress}
-          className="p-2 pl-3 rounded-lg w-64 outline-none"
-          placeholder={props.placeholder}
-          style={styleInput}
-        />
-        <button 
-          onClick={() => props.onSearch(props.value)} 
-          className="ml-2 p-2 bg-[var(--tx-color2)] text-white rounded-lg"
+      <div className="relative">
+        <select
+          value={selectedOption.name}
+          onChange={() => setSelectedOption(selectedOption)}
+          className="appearance-none bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded-lg leading-tight focus:outline-none focus:bg-white focus:border-[var(--tx-color2)]"
         >
-          Buscar
-        </button>
+          {props.options.map((option, index) => (
+            <option key={index} value={option.name}>
+              {option.name}
+            </option>
+          ))}
+        </select>
+        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+          <ChevronDownIcon className="h-4 w-4" />
+        </div>
       </div>
+      <input
+        type="text"
+        value={props.value}
+        onChange={(e) => props.setValue(e.target.value)}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+        onKeyPress={handleKeyPress}
+        className={`p-2 pl-3 rounded-lg outline-none border ${
+          isFocused ? "border-[var(--tx-color2)]" : "border-gray-300"
+        }`}
+        style={{ width: props.width }}
+        placeholder={props.placeholder}
+      />
+      <button
+        onClick={() => props.onSearch(props.value)}
+        className="p-2 bg-[var(--tx-color2)] text-white rounded-lg hover:bg-opacity-90 transition-colors duration-200"
+      >
+        Buscar
+      </button>
     </div>
-  );
-};
+  )
+}
+

@@ -11,7 +11,7 @@ export const BtnIconDev = (props: BtnTextProp) =>
 
   return (
     <button className="text-[var(--tx-color2)] hover:text-[var(--tx-hover)] transition-colors">
-      <i className={`${props.icon} text-[30px]`}></i>
+      <i className={`${props.icon} text-[25px]`}></i>
     </button>
   );
 }
