@@ -1,42 +1,48 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* FILE INPUT FILE STYLE */
+.custom-file-upload {
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  border: 2px solid var(--tx-color2);
+  background-color: #fff;
+  color: #333;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.custom-file-upload:hover {
+  background-color: var(--tx-color2);
+  color: #fff;
 }
 
-.card {
-  padding: 2em;
+/* LOADER STYLES */
+.loader {
+  aspect-ratio: 1;
+  color: #cc4434;
+  position: relative;
+  background:
+    conic-gradient(from 134deg at top   ,currentColor 92deg,#0000 0) top,
+    conic-gradient(from -46deg at bottom,currentColor 92deg,#0000 0) bottom;
+  background-size: 100% 50%;
+  background-repeat: no-repeat;
 }
-
-.read-the-docs {
-  color: #888;
+.loader:before {
+  content:'';
+  position: absolute;
+  inset: 0;
+  --g:currentColor 65px,#0000 0 calc(100% - 65px),currentColor 0;
+  background:
+    linear-gradient( 45deg,var(--g)),
+    linear-gradient(-45deg,var(--g));
+   animation: l7 1.5s infinite cubic-bezier(0.3,1,0,1);
+}
+@keyframes l7 {
+   33%  {inset:-10px;transform: rotate(0deg)}
+   66%  {inset:-10px;transform: rotate(90deg)}
+   100% {inset:0    ;transform: rotate(90deg)}
 }

@@ -1,0 +1,26 @@
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.load-component {
+  border: 15px solid var(--bg-nav);
+  border-radius: 100%;
+  border-top-color: var(--tx-color2);
+  border-bottom-color: var(--tx-color2);
+  animation: loading 1.5s infinite linear;
+  animation: loading 2s infinite ease-in-out;
+}
+
+.cont-load-component{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
