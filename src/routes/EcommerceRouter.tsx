@@ -8,7 +8,7 @@ export const EcommerceRouter = () => {
     <>
       <LayoutDashboard>
         <Routes>
-          <Route path="/dashboard" element = {<Products />}/>  
+          <Route path="/" element = {<Products />}/>  
           <Route path="/*" element = {<Products />}/>  
         </Routes>
       </LayoutDashboard>

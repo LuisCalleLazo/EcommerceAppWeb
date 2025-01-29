@@ -14,17 +14,6 @@ export interface FilterCategory {
 
 export const ecommerceFilters: FilterCategory[] = [
   {
-    id: "category",
-    name: "Categorías",
-    options: [
-      { id: "cosmetics", label: "Cosmeticos", type: "checkbox" },
-      { id: "electronics", label: "Electrónicos", type: "checkbox" },
-      { id: "clothing", label: "Ropa", type: "checkbox" },
-      { id: "books", label: "Libros", type: "checkbox" },
-      { id: "home", label: "Hogar", type: "checkbox" },
-    ],
-  },
-  {
     id: "price",
     name: "Precio",
     options: [{ id: "price-range", label: "Rango de precio", type: "range", min: 0, max: 1000 }],
@@ -63,6 +52,15 @@ export const ecommerceFilters: FilterCategory[] = [
       { id: "50", label: "50% de descunto o más", type: "checkbox" },
       { id: "60", label: "60% de descunto o más", type: "checkbox" },
       { id: "70", label: "70% de descunto o más", type: "checkbox" },
+    ],
+  },
+  {
+    id: "beneficios",
+    name: "Beneficios",
+    options: [
+      { id: "ben1", label: "4 estrellas y más", type: "checkbox" },
+      { id: "ben2", label: "3 estrellas y más", type: "checkbox" },
+      { id: "ben3", label: "2 estrellas y más", type: "checkbox" },
     ],
   },
 ]

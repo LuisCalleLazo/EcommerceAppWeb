@@ -11,9 +11,9 @@ export const LayoutDashboard = ({ children }: { children: ReactNode }) => {
       <HeadDashboard />
 
       {/* Contenido principal */}
-      <div className="h-[85vh] flex flex-row">
+      <div className="h-[90vh] flex flex-row">
         {/* Sidebar */}
-        <div className="w-[360px] relative overflow-auto border-r-2">
+        <div className="w-[20%] relative overflow-auto border-r-2">
           <SidebarDashboard />
         </div>
 

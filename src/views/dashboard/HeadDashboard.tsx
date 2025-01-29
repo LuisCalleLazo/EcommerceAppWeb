@@ -1,11 +1,13 @@
 
 import { useState } from "react"
-import logo from "../../assets/ComexLogoTop.png"
+import logo from "../../assets/logo.png"
 import { CartModal } from "../cart/CartModal"
+import { BtnIconDev, InputSearch } from "../../components";
 
 export const HeadDashboard = () =>
 {
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [search, setSearch] = useState("");
   const [cartItems, setCartItems] = useState([
     { id: 1, name: "Smartphone XYZ", price: 599.99, quantity: 1, image: "https://cdn.static.escuelamakeup.com/imagenes/de-que-estan-hechos-los-cosmeticos_905x603.jpg" },
     { id: 2, name: "Laptop UltraBook", price: 1299.99, quantity: 1, image: "https://cdn.static.escuelamakeup.com/imagenes/de-que-estan-hechos-los-cosmeticos_905x603.jpg" },
@@ -22,39 +24,40 @@ export const HeadDashboard = () =>
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0)
 
   return (
-    <header className="bg-white shadow-md w-full h-[15vh] flex items-center justify-between px-4 md:px-6 lg:px-8">
+    <header className="bg-[var(--bg-color)] shadow-md w-full h-[10vh] flex items-center justify-between px-4 md:px-6 lg:px-8">
       <div className="flex items-center">
         <img src={logo || "/placeholder.svg"} alt="Comex Logo" className="h-12 w-auto" />
       </div>
 
-      <div className="flex-1 max-w-2xl mx-4">
-        <div className="relative">
-          <input
-            type="text"
-            placeholder="Buscar productos..."
-            className="w-full py-2 px-4 pr-10 border border-gray-300 focus:outline-none focus:ring-2 focus:text-[var(--tx-color2)] focus:border-transparent"
+      <div className="flex-1 max-w-[500px]">
+          <InputSearch
+            width="500px"
+            placeholder="Ingrese una busqueda"
+            setValue={setSearch}
+            onSearch={setSearch}
+            value={search}
+            icon="bi bi-search"
           />
-          <button className="absolute right-3 top-1/2 transform -translate-y-1/2">
-            <i className="bi bi-search text-gray-500 hover:text-[var(--tx-color2)] transition-colors"></i>
-          </button>
-        </div>
       </div>
 
-      <div className="flex items-center space-x-4">
-        <button className="text-gray-700 hover:text-[var(--tx-color2)] transition-colors">
-          <i className="bi bi-person text-2xl"></i>
-        </button>
+      <div className="flex items-center w-[300px] justify-between">
+
+        <BtnIconDev onClick={() => {}} icon="bi bi-flag"/>
+        
+
         <button
-          className="text-gray-700 hover:text-[var(--tx-color2)] transition-colors relative"
+          className="text-[var(--tx-color2)] hover:text-[var(--tx-hover)] transition-colors relative"
           onClick={() => setIsCartOpen(true)}
         >
-          <i className="bi bi-cart text-2xl"></i>
+          <i className="bi bi-cart text-[30px]"></i>
           {totalItems > 0 && (
             <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
               {totalItems}
             </span>
           )}
         </button>
+
+        <BtnIconDev onClick={() => {}} icon="bi bi-person"/>
       </div>
       <CartModal
         isOpen={isCartOpen}

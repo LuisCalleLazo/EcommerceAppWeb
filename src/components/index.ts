@@ -7,3 +7,5 @@ export * from './text/H1Text';
 export * from './button/BtnText';
 export * from './checkbox/CheckboxDev';
 export * from './slider/SliderPriceDev';
+export * from './input/InputSearch';
+export * from './button/BtnIconDev';

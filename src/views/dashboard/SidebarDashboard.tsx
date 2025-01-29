@@ -77,7 +77,7 @@ export const SidebarDashboard = () => {
   }
   
   return (
-    <div className="w-[300px] min-w-64 pl-[10px] pt-[10px] pb-[10px]">
+    <div className="flex flex-col min-w-[150px] max-w-[250px] pl-[10px] pt-[10px] pb-[10px] pr-[10px]">
       <h2 className="text-xl font-bold mb-4 text-[var(--tx-color2)]">Filtros</h2>
       {ecommerceFilters.map((category) => (
         <div key={category.id} className="mb-4">
