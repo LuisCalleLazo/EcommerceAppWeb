@@ -25,3 +25,12 @@ export interface DecodedToken {
   worker: string;
   customer: string;
 }
+
+export interface AppSectionItem
+{
+  name: string;
+  page: string;
+  icon: string;
+  link: string;
+  numGroup: number;
+}

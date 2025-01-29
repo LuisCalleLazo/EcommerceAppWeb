@@ -5,3 +5,5 @@ export * from './input/InputText';
 export * from './input/InputPass';
 export * from './text/H1Text';
 export * from './button/BtnText';
+export * from './checkbox/CheckboxDev';
+export * from './slider/SliderPriceDev';

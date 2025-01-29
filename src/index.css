@@ -16,7 +16,7 @@
 base {
     :root {
       --bg-color: #000;
-      --bg-color2: #440000;
+      --bg-color2: #111250;
       --bg-color3: #17788F;
       --bg-color4: linear-gradient(to bottom right, #111250, 70%, #17788F67);
       --bg-color5: linear-gradient(180deg, #111250, 75%, #17788Fff);
@@ -25,7 +25,8 @@ base {
       /* --tx-color2: #17f88F; */
       --tx-color2: #ffaa00;
       --txt2-color: #222;
-      --btn-cancel: #900;
+      --btn-cancel: #259;
+      --btn-hover: #259;
     }
 }
 
