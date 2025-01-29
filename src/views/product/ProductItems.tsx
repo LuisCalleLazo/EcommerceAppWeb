@@ -2,13 +2,15 @@ import type React from "react"
 import { useState } from "react"
 
 interface ProductItemProps {
+  id: number
   name: string
   price: number
   description: string
   images: string[]
+  onAddToCart: (product: { id: number; name: string; price: number; image: string }) => void
 }
 
-export const ProductItem: React.FC<ProductItemProps> = ({ name, price, description, images }) => {
+export const ProductItem: React.FC<ProductItemProps> = ({ id, name, price, description, images, onAddToCart }) => {
   const [showModal, setShowModal] = useState(false)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
@@ -29,6 +31,10 @@ export const ProductItem: React.FC<ProductItemProps> = ({ name, price, descripti
     setCurrentImageIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length)
   }
 
+  const handleAddToCart = () => {
+    onAddToCart({ id, name, price, image: images[0] })
+  }
+
   return (
     <div className="border rounded-lg overflow-hidden shadow-lg bg-white">
       <img
@@ -41,7 +47,10 @@ export const ProductItem: React.FC<ProductItemProps> = ({ name, price, descripti
         <h3 className="text-lg font-semibold mb-2">{name}</h3>
         <p className="text-gray-600 mb-2">{description}</p>
         <p className="text-xl font-bold text-[var(--tx-color2)]">${price.toFixed(2)}</p>
-        <button className="mt-2 bg-[var(--tx-color2)] text-white px-4 py-2 rounded hover:bg-[var(--tx-hover)] transition-colors">
+        <button
+          className="mt-2 bg-[var(--tx-color2)] text-white px-4 py-2 rounded hover:bg-[var(--tx-hover)] transition-colors"
+          onClick={handleAddToCart}
+        >
           Añadir al carrito
         </button>
       </div>

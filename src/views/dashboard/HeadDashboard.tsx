@@ -1,8 +1,26 @@
 
+import { useState } from "react"
 import logo from "../../assets/ComexLogoTop.png"
+import { CartModal } from "../cart/CartModal"
 
 export const HeadDashboard = () =>
-{  
+{
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [cartItems, setCartItems] = useState([
+    { id: 1, name: "Smartphone XYZ", price: 599.99, quantity: 1, image: "https://cdn.static.escuelamakeup.com/imagenes/de-que-estan-hechos-los-cosmeticos_905x603.jpg" },
+    { id: 2, name: "Laptop UltraBook", price: 1299.99, quantity: 1, image: "https://cdn.static.escuelamakeup.com/imagenes/de-que-estan-hechos-los-cosmeticos_905x603.jpg" },
+  ])
+
+  const handleUpdateQuantity = (id: number, quantity: number) => {
+    setCartItems(cartItems.map((item) => (item.id === id ? { ...item, quantity } : item)))
+  }
+
+  const handleRemoveItem = (id: number) => {
+    setCartItems(cartItems.filter((item) => item.id !== id))
+  }
+
+  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0)
+
   return (
     <header className="bg-white shadow-md w-full h-[15vh] flex items-center justify-between px-4 md:px-6 lg:px-8">
       <div className="flex items-center">
@@ -26,13 +44,25 @@ export const HeadDashboard = () =>
         <button className="text-gray-700 hover:text-[var(--tx-color2)] transition-colors">
           <i className="bi bi-person text-2xl"></i>
         </button>
-        <button className="text-gray-700 hover:text-[var(--tx-color2)] transition-colors relative">
+        <button
+          className="text-gray-700 hover:text-[var(--tx-color2)] transition-colors relative"
+          onClick={() => setIsCartOpen(true)}
+        >
           <i className="bi bi-cart text-2xl"></i>
-          <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-            3
-          </span>
+          {totalItems > 0 && (
+            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+              {totalItems}
+            </span>
+          )}
         </button>
       </div>
+      <CartModal
+        isOpen={isCartOpen}
+        onClose={() => setIsCartOpen(false)}
+        cartItems={cartItems}
+        onUpdateQuantity={handleUpdateQuantity}
+        onRemoveItem={handleRemoveItem}
+      />
     </header>
   );
 }
