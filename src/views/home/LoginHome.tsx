@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { toast } from "react-toastify";
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { CredentialResponse, GoogleLogin } from '@react-oauth/google';
 import { useAuth } from "../../context";
 import { H1Text } from "../../components";
@@ -9,11 +9,11 @@ import { InputText } from "../../components";
 import { InputPass } from "../../components";
 import { BtnText } from "../../components";
 import { LoadingSpinner } from "../../components";
-// import { useNavigate } from "react-router-dom";
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
 export const Login = () =>
 {
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loadLogin, setLoadLogin] = useState(false);
@@ -26,6 +26,7 @@ export const Login = () =>
 
   const handleLogin = async () => {
     setLoadLogin(true);
+    navigate('/e-commerce/dashboard');
     await login({nameOrGmail: username, password})
     setLoadLogin(false);
   };

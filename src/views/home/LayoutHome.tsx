@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { Login } from "./Login";
+import { Login } from "./LoginHome";
 // import { Register } from "../InitSession/Register";
 
 interface HomeLayoutProp
