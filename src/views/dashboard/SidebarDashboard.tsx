@@ -59,8 +59,8 @@ export const SidebarDashboard = () => {
             </label>
             <SliderDev
               id={option.id}
-              min={1}
-              max={100}
+              min={option.min ?? 0}
+              max={option.max ?? 100}
               step={1}
               value={filters[category.id]?.[option.id] || [option.min!, option.max!]}
               onChange={(value) => handleFilterChange(category.id, option.id, value)}
