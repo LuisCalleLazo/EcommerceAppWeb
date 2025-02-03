@@ -45,46 +45,6 @@
    animation: l7 1.5s infinite cubic-bezier(0.3,1,0,1);
 }
 
-/* STYLE RANGE */
-/* Estilos para los thumbs de los sliders */
-input[type="range"] {
-  pointer-events: none;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: white;
-  border: 2px solid var(--tx-color2);
-  cursor: pointer;
-  pointer-events: auto;
-  z-index: 5;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
-}
-
-input[type="range"]::-moz-range-thumb {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: white;
-  border: 2px solid var(--tx-color2);
-  cursor: pointer;
-  pointer-events: auto;
-  z-index: 5;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
-}
-
-/* Asegurarse de que los thumbs estén por encima de la barra */
-input[type="range"]:hover::-webkit-slider-thumb {
-  box-shadow: 0 0 0 10px rgba(var(--tx-color2-rgb), 0.1);
-}
-
-input[type="range"]:hover::-moz-range-thumb {
-  box-shadow: 0 0 0 10px rgba(var(--tx-color2-rgb), 0.1);
-}
 
 
 @keyframes l7 {

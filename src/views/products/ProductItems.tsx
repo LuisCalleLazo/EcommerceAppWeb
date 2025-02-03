@@ -8,7 +8,7 @@ interface ProductItemProps {
   price: number
   description: string
   images: string[]
-  onAddToCart: (product: { id: number; name: string; price: number; images: string }) => void
+  onAddToCart: (product: { id: number; name: string; price: number; images: string[] }) => void
 }
 
 export function ProductItem({ id, name, price, description, images, onAddToCart }: ProductItemProps) {
@@ -54,7 +54,7 @@ export function ProductItem({ id, name, price, description, images, onAddToCart 
               <button
                 onClick={(e) => {
                   e.stopPropagation()
-                  onAddToCart({ id, name, price, images: images[0] })
+                  onAddToCart({ id, name, price, images: images })
                 }}
                 className="w-full bg-[var(--tx-color2)] hover:bg-[var(--tx-hover)] text-white py-2 px-4 rounded-md transition-colors"
               >
@@ -143,7 +143,7 @@ export function ProductItem({ id, name, price, description, images, onAddToCart 
               <button
                 onClick={(e) => {
                   e.stopPropagation()
-                  onAddToCart({ id, name, price, images: images[0] })
+                  onAddToCart({ id, name, price, images: images })
                   setShowModal(false)
                 }}
                 className="w-full bg-[var(--tx-color2)] hover:bg-[var(--tx-hover)] text-white py-3 px-4 rounded-md transition-colors text-lg font-semibold"

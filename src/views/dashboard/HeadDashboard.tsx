@@ -7,31 +7,33 @@ import { categoryProducts } from "../../utils";
 import { HoverableIconButton } from "./HoverableIconButton";
 import { LogoutModal } from "./LogoutModal";
 import { FlagModal } from "./FlagModa";
+import { useNavigate } from "react-router-dom";
+import { RootState } from "../../store/store";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { removeItem, updateQuantity } from "../../store/cartSlice";
 
 export const HeadDashboard = () =>
 {
+  
+  const navigate = useNavigate();
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [search, setSearch] = useState("");
-  const [cartItems, setCartItems] = useState([
-    { id: 1, name: "Smartphone XYZ", price: 599.99, quantity: 1, images: "https://m.media-amazon.com/images/I/61UjBLFlH2L.__AC_SX300_SY300_QL70_FMwebp_.jpg" },
-    { id: 2, name: "Laptop UltraBook", price: 1299.99, quantity: 1, images: "https://m.media-amazon.com/images/I/815uX7wkOZS.__AC_SX300_SY300_QL70_FMwebp_.jpg" },
-  ])
+  const cartItems = useSelector((state: RootState) => state.cart.items)
+  const dispatch = useDispatch()
 
-  const handleUpdateQuantity = (id: number, quantity: number) => {
-    setCartItems(cartItems.map((item) => (item.id === id ? { ...item, quantity } : item)))
+  const onUpdateQuantity = (id: number, quantity: number) => {
+    dispatch(updateQuantity({ id, quantity }))
   }
 
-  const handleRemoveItem = (id: number) => {
-    setCartItems(cartItems.filter((item) => item.id !== id))
+  const onRemoveItem = (id: number) => {
+    dispatch(removeItem(id))
   }
-
-  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0)
-
   return (
     <div>
       <header className="bg-[var(--bg-color)] shadow-md w-full h-[10vh] flex items-center justify-between px-4 md:px-6 lg:px-8">
-        <div className="flex items-center">
-          <img src={logo || "/placeholder.svg"} alt="Comex Logo" className="h-[90px] w-[240px]" />
+        <div className="flex items-center p-2 rounded-lg">
+          <img src={logo || "/placeholder.svg"} alt="Comex Logo" className="h-[90px] w-[240px] opacity-90 hue-rotate-[300deg]" />
         </div>
 
         <div className="flex-1 max-w-[600px] flex-row">
@@ -54,12 +56,12 @@ export const HeadDashboard = () =>
 
           <button
             className="text-[var(--tx-color2)] hover:text-[var(--tx-hover)] transition-colors relative"
-            onClick={() => setIsCartOpen(true)}
+            onClick={() => navigate('cart')}
           >
             <i className="bi bi-cart text-[25px]"></i>
-            {totalItems > 0 && (
+            {cartItems.length > 0 && (
               <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                {totalItems}
+                {cartItems.length}
               </span>
             )}
           </button>
@@ -73,8 +75,8 @@ export const HeadDashboard = () =>
           isOpen={isCartOpen}
           onClose={() => setIsCartOpen(false)}
           cartItems={cartItems}
-          onUpdateQuantity={handleUpdateQuantity}
-          onRemoveItem={handleRemoveItem}
+          onUpdateQuantity={onUpdateQuantity}
+          onRemoveItem={onRemoveItem}
         />
       </header>
       <header className="bg-[var(--bg-color)] shadow-md w-full h-[7vh] flex items-center flex-wrap px-4 md:px-6 lg:px-8 gap-5">

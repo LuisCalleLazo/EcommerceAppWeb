@@ -5,7 +5,7 @@ interface CartItem {
   name: string
   price: number
   quantity: number
-  images: string
+  images: string[]
 }
 
 interface CartModalProps {
@@ -38,7 +38,7 @@ export const CartModal: React.FC<CartModalProps> = ({ isOpen, onClose, cartItems
             {cartItems.map((item) => (
               <div key={item.id} className="flex items-center border-b border-gray-200 py-4">
                 <img
-                  src={item.images || "/placeholder.svg"}
+                  src={item.images[0] || "/placeholder.svg"}
                   alt={item.name}
                   className="w-20 h-20 object-cover rounded"
                 />

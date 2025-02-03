@@ -1,5 +1,5 @@
 import type React from "react"
-
+import './InputRange.css';
 interface InputRangeProps {
   id: string
   label: string
