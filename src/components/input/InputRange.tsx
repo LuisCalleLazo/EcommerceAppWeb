@@ -2,7 +2,6 @@ import type React from "react"
 import './InputRange.css';
 interface InputRangeProps {
   id: string
-  label: string
   min: number
   max: number
   currentMinValue: number
@@ -13,9 +12,6 @@ interface InputRangeProps {
 export const InputRange: React.FC<InputRangeProps> = (props) => {
   return (
     <div className="space-y-4 mb-4">
-      <label htmlFor={props.id} className="text-sm font-medium leading-none text-gray-700">
-        {props.label}
-      </label>
       <div className="relative pt-1">
         <div className="flex justify-between mb-2">
           <span className="text-xs font-semibold text-gray-700">Bs {props.currentMinValue}</span>

@@ -15,7 +15,7 @@
 @layer
 base {
     :root {
-      --bg-color: #000;
+      --bg-color: #4c716e;
       --bg-color2: #102d827b;
       --bg-color3: #17788F;
       --bg-color4: linear-gradient(to bottom right, #111250, 70%, #17788F67);

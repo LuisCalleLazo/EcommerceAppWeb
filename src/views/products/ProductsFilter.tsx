@@ -5,7 +5,10 @@ import { InputCheckBox, InputRange } from "../../components"
 
 export const ProductsFilter = () => {
   const [filters, setFilters] = useState<Record<string, any>>({})
-  const [openCategories, setOpenCategories] = useState<Record<string, boolean>>({})
+  const [openCategories, setOpenCategories] = useState<Record<string, boolean>>(
+    Object.fromEntries(ecommerceFilters.map(category => [category.id, true]))
+  );
+  
 
   const handleFilterChange = (categoryId: string, optionId: string, value: boolean | number[]) => {
     setFilters((prev) => ({
@@ -45,7 +48,6 @@ export const ProductsFilter = () => {
           <InputRange
             key={option.id}
             id={option.id}
-            label={option.label}
             min={minValue}
             max={maxValue}
             currentMinValue={currentMinValue}
