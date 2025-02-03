@@ -1,30 +1,31 @@
-import { useDispatch } from "react-redux"
-import { useLoading } from "../context";
+import { useDispatch, useSelector } from "react-redux";
+// import { useLoading } from "../context";
 import { ProductResponse } from "../interfaces";
+import { RootState } from "../store/store";
+import { addToCart, removeItem, updateQuantity } from "../store/cartSlice";
 
-export const useCartStore = () =>
-{
+export const useCartStore = () => {
   const dispatch = useDispatch();
-  const { setLoading } = useLoading();
+  // const { setLoading } = useLoading();
+  const cartItems = useSelector((state: RootState) => state.cart.items);
 
-  const addToCart = (product : ProductResponse) =>
-  {
-    // dispatch(addToCart())
-  }
+  const addProductToCart = (product: ProductResponse) => {
+    // setLoading(true);
+    dispatch(addToCart(product));
+  };
 
-  const updateQuantity = () =>
-  {
+  const updateCartQuantity = (id: number, quantity: number) => {
+    dispatch(updateQuantity({ id, quantity }));
+  };
 
-  }
-
-  const removeItem = () =>
-  {
-
-  }
+  const removeCartItem = (id: number) => {
+    dispatch(removeItem(id));
+  };
 
   return {
-    addToCart,
-    updateQuantity,
-    removeItem
-  }
-}
+    cartItems,
+    addProductToCart,
+    updateCartQuantity,
+    removeCartItem,
+  };
+};

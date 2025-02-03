@@ -9,6 +9,7 @@ export const ecommerceProducts = [
       "https://d1flfk77wl2xk4.cloudfront.net/Assets/29/216/L_p0114021629.jpg", 
       "https://d1flfk77wl2xk4.cloudfront.net/Assets/71/855/XXL_p0192285571.jpg"
     ],
+    qualification : 100,
   },
   {
     id: 2,
@@ -19,6 +20,7 @@ export const ecommerceProducts = [
       "https://m.media-amazon.com/images/I/41sX+hKcbML._SY300_SX300_.jpg", 
       "https://m.media-amazon.com/images/I/41JPVkCT3OL._SX300_SY300_QL70_FMwebp_.jpg",
     ],
+    qualification : 100,
   },
   {
     id: 3,
@@ -28,6 +30,7 @@ export const ecommerceProducts = [
     images: [
       "https://m.media-amazon.com/images/I/31VEok0EKtL._SX300_SY300_QL70_FMwebp_.jpg",
     ],
+    qualification : 100,
   },
   {
     id: 4,
@@ -37,6 +40,7 @@ export const ecommerceProducts = [
     images: [
       "https://m.media-amazon.com/images/I/41Lbyxqw-VL._SX300_SY300_QL70_FMwebp_.jpg", 
     ],
+    qualification : 100,
   },
   {
     id: 5,
@@ -48,6 +52,7 @@ export const ecommerceProducts = [
       "https://d1flfk77wl2xk4.cloudfront.net/Assets/29/216/L_p0114021629.jpg", 
       "https://d1flfk77wl2xk4.cloudfront.net/Assets/71/855/XXL_p0192285571.jpg"
     ],
+    qualification : 100,
   },
   {
     id: 6,
@@ -58,6 +63,7 @@ export const ecommerceProducts = [
       "https://m.media-amazon.com/images/I/41sX+hKcbML._SY300_SX300_.jpg", 
       "https://m.media-amazon.com/images/I/41JPVkCT3OL._SX300_SY300_QL70_FMwebp_.jpg",
     ],
+    qualification : 100,
   },
   {
     id: 7,
@@ -67,6 +73,7 @@ export const ecommerceProducts = [
     images: [
       "https://m.media-amazon.com/images/I/31VEok0EKtL._SX300_SY300_QL70_FMwebp_.jpg",
     ],
+    qualification : 100,
   },
   {
     id: 8,
@@ -76,6 +83,7 @@ export const ecommerceProducts = [
     images: [
       "https://m.media-amazon.com/images/I/41Lbyxqw-VL._SX300_SY300_QL70_FMwebp_.jpg", 
     ],
+    qualification : 100,
   },
   {
     id: 9,
@@ -87,6 +95,7 @@ export const ecommerceProducts = [
       "https://d1flfk77wl2xk4.cloudfront.net/Assets/29/216/L_p0114021629.jpg", 
       "https://d1flfk77wl2xk4.cloudfront.net/Assets/71/855/XXL_p0192285571.jpg"
     ],
+    qualification : 100,
   },
   {
     id: 10,
@@ -97,6 +106,7 @@ export const ecommerceProducts = [
       "https://m.media-amazon.com/images/I/41sX+hKcbML._SY300_SX300_.jpg", 
       "https://m.media-amazon.com/images/I/41JPVkCT3OL._SX300_SY300_QL70_FMwebp_.jpg",
     ],
+    qualification : 100,
   },
   {
     id: 11,
@@ -106,6 +116,7 @@ export const ecommerceProducts = [
     images: [
       "https://m.media-amazon.com/images/I/31VEok0EKtL._SX300_SY300_QL70_FMwebp_.jpg",
     ],
+    qualification : 100,
   },
   {
     id: 12,
@@ -115,6 +126,7 @@ export const ecommerceProducts = [
     images: [
       "https://m.media-amazon.com/images/I/41Lbyxqw-VL._SX300_SY300_QL70_FMwebp_.jpg", 
     ],
+    qualification : 100,
   },
 ]
 

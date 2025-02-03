@@ -1,15 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { ecommerceProducts } from "../utils"
+import { ProductResponse } from "../interfaces"
 
 
-export interface Product {
-  id: number
-  name: string
-  price: number
-  images: string[]
-}
 
-const initialState: Product[] = ecommerceProducts
+const initialState: ProductResponse[] = ecommerceProducts
 
 const productSlice = createSlice({
   name: "products",

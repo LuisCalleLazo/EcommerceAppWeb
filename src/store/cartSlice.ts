@@ -12,9 +12,21 @@ interface CartState {
   items: CartItem[]
 }
 
-const initialState: CartState = {
-  items: [],
+const loadCartFromStorage = (): CartState => {
+  if (typeof window !== "undefined") {
+    const storedCart = localStorage.getItem("cart")
+    return storedCart ? JSON.parse(storedCart) : { items: [] }
+  }
+  return { items: [] }
 }
+
+const saveCartToStorage = (cart: CartState) => {
+  if (typeof window !== "undefined") {
+    localStorage.setItem("cart", JSON.stringify(cart))
+  }
+}
+
+const initialState: CartState = loadCartFromStorage()
 
 const cartSlice = createSlice({
   name: "cart",
@@ -27,15 +39,22 @@ const cartSlice = createSlice({
       } else {
         state.items.push({ ...action.payload, quantity: 1 })
       }
+      saveCartToStorage(state)
     },
     updateQuantity: (state, action: PayloadAction<{ id: number; quantity: number }>) => {
       const item = state.items.find((item) => item.id === action.payload.id)
       if (item) {
         item.quantity = action.payload.quantity
       }
+      saveCartToStorage(state)
     },
     removeItem: (state, action: PayloadAction<number>) => {
       state.items = state.items.filter((item) => item.id !== action.payload)
+      saveCartToStorage(state) 
+    },
+    clearCart: (state) => {
+      state.items = []
+      saveCartToStorage(state)
     },
   },
 })
