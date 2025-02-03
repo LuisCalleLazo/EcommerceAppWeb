@@ -15,7 +15,7 @@ export interface FilterCategory {
 export const ecommerceFilters: FilterCategory[] = [
   {
     id: "price",
-    name: "Price",
+    name: "Precios",
     options: [
       {
         id: "priceRange",

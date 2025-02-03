@@ -23,8 +23,10 @@ base {
       --bg-target: #11114422;
       --tx-color: #fff;
       /* --tx-color2: #17f88F; */
-      --tx-color2: #00aa00; /* Verde brillante */
-      --tx-hover: #008800;  /* Verde más oscuro para el hover */
+      --tx-color2: #ffb6c1; /* Rosa claro pastel */
+      --tx-hover: #ff91a4; /* Un tono más oscuro para hover */
+      /* --tx-color2: #ffaa00;
+      --tx-hover: #ff8800; */
       --txt2-color: #222;
       --btn-cancel: #259;
       --btn-hover: #259;
