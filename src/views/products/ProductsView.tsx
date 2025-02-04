@@ -6,7 +6,7 @@ export const ProductsView: React.FC = () =>
 {
   return(
     <>
-      <div className="w-[19%] relative overflow-auto border-r-2">
+      <div className="w-[19%] relative overflow-auto">
         <ProductsFilter />
       </div>
       

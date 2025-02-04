@@ -64,7 +64,6 @@ export const ProductsFilter = () => {
     <div className="flex flex-col min-w-[150px] max-w-[300px] p-4 bg-white shadow-lg rounded-lg">
       {ecommerceFilters.map((category) => (
         <div key={category.id} className="mb-6">
-          
           <button
             onClick={() => toggleCategory(category.id)}
             className="flex justify-between items-center w-full py-2 text-left text-gray-800 hover:text-[var(--tx-color2)] transition-colors duration-200"

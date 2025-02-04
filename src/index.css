@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
 .custom-toast-container .Toastify__toast {
-  background-color: var(--tx-hover);
+  background-color: var(--bg-color);
+  opacity: 0.9;
   font-weight: bolder;
   color: #fff;
   border-radius: 5px;
@@ -15,6 +16,8 @@
 @layer
 base {
     :root {
+      --btn-color : #f87171;
+      --btn-color-hover : #ff6687;
       --bg-color: #4c716e;
       --bg-color2: #102d827b;
       --bg-color3: #17788F;
@@ -44,14 +47,14 @@ base {
 /* ESTILOS PARA LOS SCROLL */
 
 ::-webkit-scrollbar {
-  width: 3px;
+  width: 7px;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #000;
+  background: #fff;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #345; /* Color del thumb */
+  background-color: var(--btn-color); /* Color del thumb */
 }

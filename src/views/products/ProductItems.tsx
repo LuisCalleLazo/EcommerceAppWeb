@@ -32,7 +32,7 @@ export function ProductItem({ id, name, price, description, images, onAddToCart 
       <div
         onClick={handleCardClick}
         className="group relative overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl rounded-lg
-        border-2 w-[300px] h-[400px] flex" 
+        border-2 w-[280px] h-[350px] flex" 
       >
         <div className="aspect-square overflow-hidden">
           <img

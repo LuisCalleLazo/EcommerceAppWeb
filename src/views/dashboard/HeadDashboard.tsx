@@ -1,7 +1,6 @@
 
 import { useState } from "react"
 import logo from "../../assets/logo2.png"
-import { CartModal } from "../cart/CartModal"
 import { BtnIconDev, BtnText, InputSearch } from "../../components";
 import { categoryProducts } from "../../utils";
 import { HoverableIconButton } from "./HoverableIconButton";
@@ -10,25 +9,14 @@ import { FlagModal } from "./FlagModa";
 import { useNavigate } from "react-router-dom";
 import { RootState } from "../../store/store";
 import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
-import { removeItem, updateQuantity } from "../../store/cartSlice";
 
 export const HeadDashboard = () =>
 {
   
   const navigate = useNavigate();
-  const [isCartOpen, setIsCartOpen] = useState(false);
   const [search, setSearch] = useState("");
   const cartItems = useSelector((state: RootState) => state.cart.items)
-  const dispatch = useDispatch()
 
-  const onUpdateQuantity = (id: number, quantity: number) => {
-    dispatch(updateQuantity({ id, quantity }))
-  }
-
-  const onRemoveItem = (id: number) => {
-    dispatch(removeItem(id))
-  }
   return (
     <div>
       <header className="bg-[var(--bg-color)] shadow-md w-full h-[10vh] flex items-center justify-between px-4 md:px-6 lg:px-8">
@@ -71,22 +59,15 @@ export const HeadDashboard = () =>
             <BtnIconDev onClick={() => {}} icon="bi bi-person" />
           </HoverableIconButton>
         </div>
-        <CartModal
-          isOpen={isCartOpen}
-          onClose={() => setIsCartOpen(false)}
-          cartItems={cartItems}
-          onUpdateQuantity={onUpdateQuantity}
-          onRemoveItem={onRemoveItem}
-        />
       </header>
       <header className="bg-[var(--bg-color)] shadow-md w-full h-[7vh] flex items-center flex-wrap px-4 md:px-6 lg:px-8 gap-5">
-        <BtnText onClick={() => {}}>
+        <BtnText onClick={() => {}} width="200px">
           Productos
         </BtnText>
-        <BtnText onClick={() => {}}>
+        <BtnText onClick={() => {}} width="150px">
           Ofertas del dia
         </BtnText>
-        <BtnText onClick={() => {}}>
+        <BtnText onClick={() => {}} width="150px">
           Listas
         </BtnText>
       </header>

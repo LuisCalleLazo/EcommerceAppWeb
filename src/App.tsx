@@ -13,7 +13,7 @@ function App() {
         <Route path="/cart" element={ <CartView/> } />
         <Route path="*" element={ <EcommerceRouter/> } />
       </Routes>
-      <ToastContainer autoClose={1300} className="custom-toast-container" />
+      <ToastContainer autoClose={1300} className="custom-toast-container" position="bottom-right"/>
       <LoadingModal />
     </>
   )

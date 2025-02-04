@@ -10,3 +10,4 @@ export * from './input/InputSearch';
 export * from './button/BtnIconDev';
 export * from './input/InputCheckBox';
 export * from './input/InputRange';
+export * from './input/InputRadio';
