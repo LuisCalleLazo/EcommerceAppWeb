@@ -31,8 +31,8 @@ export const CartMethodPay = () =>
               <QRCodeCanvas 
                 value={"https://ecommerce-app-web.vercel.app/"+totalAmount.toFixed(2)} 
                 size={150}
-                bgColor="#ffffff" 
-                fgColor="#000000" 
+                bgColor="#fff" 
+                fgColor="#f87171" 
                 level="H" />
                 <p className="pt-5">
                   Pago por un total de: <b>Bs {totalAmount.toFixed(2)}</b>
@@ -77,12 +77,17 @@ export const CartMethodPay = () =>
             checked={selectedMethod === "paypal"}
             onChange={handleChange} /> */}
         </div>
-        <BtnText onClick={() => {setGenerateQr(!generateQr)}} hoverBg="#400" disabled={generateQr == true}>
-          Proceder al Pago
+        <BtnText 
+          onClick={() => {
+            if(generateQr) setGenerateQr(false)
+            else navigate('/')
+          }} 
+          hoverBg="#400">
+          Cancelar
         </BtnText>
         <div className="h-[10px]"/>
-        <BtnText onClick={() => {navigate('/')}} hoverBg="#400">
-          Cancelar
+        <BtnText onClick={() => {setGenerateQr(!generateQr)}} hoverBg="#400" disabled={generateQr == true || totalAmount == 0}>
+          Generar QR
         </BtnText>
       </div>
     </div>
