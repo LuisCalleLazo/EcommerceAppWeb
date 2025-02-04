@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { BtnIcon, BtnText } from "../../components"
 
 interface ProductItemProps {
   id: number
@@ -42,8 +43,8 @@ export function ProductItem({ id, name, price, description, images, onAddToCart 
           />
         </div>
 
-        {/* Overlay that appears on hover */}
-        <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        {/* Hover Style */}
+        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <div className="p-4 text-white h-full flex flex-col justify-between">
             <div>
               <h3 className="text-lg font-semibold mb-2">{name}</h3>
@@ -51,15 +52,10 @@ export function ProductItem({ id, name, price, description, images, onAddToCart 
             </div>
             <div>
               <p className="text-xl font-bold mb-2">Bs {price.toFixed(2)}</p>
-              <button
-                onClick={(e) => {
-                  e.stopPropagation()
-                  onAddToCart({ id, name, price, images: images })
-                }}
-                className="w-full bg-[var(--tx-color2)] hover:bg-[var(--tx-hover)] text-white py-2 px-4 rounded-md transition-colors"
-              >
+              <BtnText 
+                onClick={() => { onAddToCart({ id, name, price, images: images }) }}>
                 Añadir al carrito
-              </button>
+              </BtnText>
             </div>
           </div>
         </div>
@@ -85,40 +81,16 @@ export function ProductItem({ id, name, price, description, images, onAddToCart 
 
               {images.length > 1 && (
                 <>
-                  <button
-                    className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--tx-color2)] hover:bg-white/20 p-2 rounded-full transition-colors"
-                    onClick={(e) => {
-                      e.stopPropagation()
-                      handlePrevImage()
-                    }}
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-8 w-8"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                    </svg>
-                  </button>
-                  <button
-                    className="absolute right-4 top-1/2 -translate-y-1/2 text-[var(--tx-color2)] hover:bg-white/20 p-2 rounded-full transition-colors"
-                    onClick={(e) => {
-                      e.stopPropagation()
-                      handleNextImage()
-                    }}
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-8 w-8"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </button>
+                  <BtnIcon 
+                    OnClick={() => handlePrevImage()}
+                    icon="bi bi-chevron-left"
+                    className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full p-2 hover:bg-gray-200"
+                  />
+                  <BtnIcon 
+                    OnClick={() => handleNextImage()}
+                    icon="bi bi-chevron-right"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full p-2 hover:bg-gray-200"
+                  />
                 </>
               )}
 
@@ -140,33 +112,21 @@ export function ProductItem({ id, name, price, description, images, onAddToCart 
                   aliquip ex ea commodo consequat.
                 </p>
               </div>
-              <button
-                onClick={(e) => {
-                  e.stopPropagation()
+              <BtnText
+                onClick={() => {
                   onAddToCart({ id, name, price, images: images })
                   setShowModal(false)
-                }}
-                className="w-full bg-[var(--tx-color2)] hover:bg-[var(--tx-hover)] text-white py-3 px-4 rounded-md transition-colors text-lg font-semibold"
-              >
+                }}>
                 Añadir al carrito
-              </button>
+              </BtnText>
             </div>
 
             {/* Botón de cierre */}
-            <button
-              className="absolute right-6 top-6 text-gray-800 hover:bg-gray-200 p-2 rounded-full transition-colors z-10"
-              onClick={() => setShowModal(false)}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
+            <BtnIcon 
+              OnClick={() => setShowModal(false)}
+              icon="bi bi-x"
+              className="absolute right-4 top-2 text-gray-800 p-2 hover:bg-gray-200 z-10 rounded-full"
+            />
           </div>
         </div>
       )}

@@ -24,9 +24,12 @@ export const BtnText = (props: BtnTextProp) =>
 
   return (
       <button 
-        onClick={props.onClick} 
+        onClick={(e) => {
+          e.stopPropagation()
+          props.onClick()
+        }} 
         style={styleBtnText}
-        className={`rounded-lg font-bold duration-110 ease-in-out
+        className={`rounded-lg font-bold duration-110 ease-in-out transition-colors
           ${props.disabled ? "" : "hover:scale-105"}
           ${props.width ?? "w-full"}`}
         onMouseEnter={(e) => {

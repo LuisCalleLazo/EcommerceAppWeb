@@ -1,9 +1,8 @@
 
 import { useState } from "react"
 import logo from "../../assets/logo2.png"
-import { BtnIconDev, BtnText, InputSearch } from "../../components";
+import { BtnHoverable, BtnIcon, BtnText, IconCart, InputSearch } from "../../components";
 import { categoryProducts } from "../../utils";
-import { HoverableIconButton } from "./HoverableIconButton";
 import { LogoutModal } from "./LogoutModal";
 import { FlagModal } from "./FlagModa";
 import { useNavigate } from "react-router-dom";
@@ -37,27 +36,19 @@ export const HeadDashboard = () =>
         </div>
 
         <div className="flex items-center w-[300px] justify-between">
-        <HoverableIconButton modal={<FlagModal />}>
-          <BtnIconDev onClick={() => {}} icon="bi bi-flag" />
-        </HoverableIconButton>
-          
+          <BtnHoverable modal={<FlagModal />}>
+            <BtnIcon OnClick={() => {}} icon="bi bi-flag" />
+          </BtnHoverable>
 
           <button
-            className="text-[var(--tx-color2)] hover:text-[var(--tx-hover)] transition-colors relative"
-            onClick={() => navigate('cart')}
-          >
-            <i className="bi bi-cart text-[25px]"></i>
-            {cartItems.length > 0 && (
-              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                {cartItems.length}
-              </span>
-            )}
+              className="text-[var(--tx-color2)] hover:text-[var(--tx-hover)] transition-colors relative hover:cursor-pointer"
+              onClick={() => navigate('cart')}>
+            <IconCart cartItems={cartItems}/> 
           </button>
 
-
-          <HoverableIconButton modal={<LogoutModal />}>
-            <BtnIconDev onClick={() => {}} icon="bi bi-person" />
-          </HoverableIconButton>
+          <BtnHoverable modal={<LogoutModal />}>
+            <BtnIcon OnClick={() => {}} icon="bi bi-person" />
+          </BtnHoverable>
         </div>
       </header>
       <header className="bg-[var(--bg-color)] shadow-md w-full h-[7vh] flex items-center flex-wrap px-4 md:px-6 lg:px-8 gap-5">
