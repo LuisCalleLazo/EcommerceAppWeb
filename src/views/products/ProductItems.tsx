@@ -1,7 +1,6 @@
-"use client"
-
+import { motion } from "framer-motion"
 import { useState } from "react"
-import { BtnIcon, BtnText } from "../../components"
+import { BtnIcon, BtnText, BubbleAnimation } from "../../components"
 
 interface ProductItemProps {
   id: number
@@ -30,11 +29,14 @@ export function ProductItem({ id, name, price, description, images, onAddToCart 
 
   return (
     <>
-      <div
+      <motion.div
         onClick={handleCardClick}
-        className="group relative overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl rounded-lg
-        border-2 w-[280px] h-[350px] flex" 
-      >
+        className="group relative overflow-hidden 
+          cursor-pointer transition-all duration-300 
+          hover:shadow-xl rounded-lg border-2 
+          w-[280px] h-[350px] flex"
+          whileHover={{scale : 1.05}}>
+            
         <div className="aspect-square overflow-hidden">
           <img
             src={images[0] || "/placeholder.svg"}
@@ -42,10 +44,15 @@ export function ProductItem({ id, name, price, description, images, onAddToCart 
             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
           />
         </div>
+        
+        {/* Hover Style with Bubble Animation */}
+        <motion.div
+          className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          initial={{ opacity: 0 }}
+          whileHover={{ opacity: 1 }}>
+            <BubbleAnimation />
 
-        {/* Hover Style */}
-        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div className="p-4 text-white h-full flex flex-col justify-between">
+          <div className="p-4 text-white h-full flex flex-col justify-between relative z-10">
             <div>
               <h3 className="text-lg font-semibold mb-2">{name}</h3>
               <p className="text-sm text-gray-200">{description}</p>
@@ -58,8 +65,9 @@ export function ProductItem({ id, name, price, description, images, onAddToCart 
               </BtnText>
             </div>
           </div>
-        </div>
-      </div>
+        </motion.div>
+
+      </motion.div>
 
       {/* Modal */}
       {showModal && (
