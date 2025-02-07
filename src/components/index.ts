@@ -14,3 +14,4 @@ export * from './input/InputRadio';
 export * from './icon/IconCart';
 export * from './button/BtnHoverable';
 export * from './navigation/NavItem';
+export * from './select/CustomSelect';

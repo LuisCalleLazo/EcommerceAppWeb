@@ -60,12 +60,6 @@ export const InputSearch = (props: InputSearchProps) => {
         style={{ width: props.width }}
         placeholder={props.placeholder}
       />
-      <button
-        onClick={() => props.onSearch(props.value)}
-        className="p-2 bg-[var(--tx-color2)] text-white rounded-lg hover:bg-opacity-90 transition-colors duration-200"
-      >
-        Buscar
-      </button>
     </div>
   )
 }
