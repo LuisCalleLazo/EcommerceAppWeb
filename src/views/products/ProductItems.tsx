@@ -1,7 +1,7 @@
 import { motion } from "framer-motion"
 import { useState } from "react"
 import { BtnIcon, BtnText, BubbleAnimation } from "../../components"
-import { useNavigate } from "react-router-dom"
+// import { useNavigate } from "react-router-dom"
 
 interface ProductItemProps {
   id: number
@@ -15,7 +15,7 @@ interface ProductItemProps {
 export function ProductItem({ id, name, price, description, images, onAddToCart }: ProductItemProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [showModal, setShowModal] = useState(false)
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleNextImage = () => {
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length)
