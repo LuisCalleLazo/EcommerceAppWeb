@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { Login } from "./LoginHome";
+import { HeadHome } from "./HeadHome";
 // import { Register } from "../InitSession/Register";
 
 interface HomeLayoutProp
@@ -12,13 +12,10 @@ export const HomeLayout = ({children} : HomeLayoutProp) =>
 
  return (
     <div className="">
+      <HeadHome />
       <div>
         {children}
       </div>
-      {
-        <Login/>    
-        // <Register setIsRegister={setIsRegister}/>
-      }
     </div>
  ); 
 }

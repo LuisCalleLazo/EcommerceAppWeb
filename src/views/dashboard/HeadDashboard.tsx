@@ -56,7 +56,7 @@ export const HeadDashboard = () =>
 
           <button
               className="text-[var(--tx-color2)] hover:text-[var(--tx-hover)] transition-colors relative hover:cursor-pointer"
-              onClick={() => navigate('cart')}>
+              onClick={() => navigate('/cart')}>
             <IconCart cartItems={cartItems}/> 
           </button>
 

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion"
 import { useState } from "react"
 import { BtnIcon, BtnText, BubbleAnimation } from "../../components"
+import { useNavigate } from "react-router-dom"
 
 interface ProductItemProps {
   id: number
@@ -14,6 +15,7 @@ interface ProductItemProps {
 export function ProductItem({ id, name, price, description, images, onAddToCart }: ProductItemProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [showModal, setShowModal] = useState(false)
+  const navigate = useNavigate();
 
   const handleNextImage = () => {
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length)
@@ -24,20 +26,20 @@ export function ProductItem({ id, name, price, description, images, onAddToCart 
   }
 
   const handleCardClick = () => {
-    setShowModal(true)
+    setShowModal(true);
+    // navigate('product-detail')
   }
 
   return (
     <>
-      <motion.div
+      <div
         onClick={handleCardClick}
-        className="group relative overflow-hidden 
+        className="relative flex-row flex-wrap
           cursor-pointer transition-all duration-300 
-          hover:shadow-xl rounded-lg border-2 
-          w-[280px] h-[350px] flex"
-          whileHover={{scale : 1.05}}>
+          hover:shadow-xl rounded-2xl border-3 border-pink-300
+          w-[280px] h-[350px] flex">
             
-        <div className="aspect-square overflow-hidden">
+        <div className="aspect-square overflow-hidden rounded-xl">
           <img
             src={images[0] || "/placeholder.svg"}
             alt={name}
@@ -47,12 +49,12 @@ export function ProductItem({ id, name, price, description, images, onAddToCart 
         
         {/* Hover Style with Bubble Animation */}
         <motion.div
-          className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl "
           initial={{ opacity: 0 }}
           whileHover={{ opacity: 1 }}>
-            <BubbleAnimation />
 
-          <div className="p-4 text-white h-full flex flex-col justify-between relative z-10">
+          <BubbleAnimation />
+          <div className="p-4 text-white h-full flex flex-col justify-between relative z-10 rounded-xl ">
             <div>
               <h3 className="text-lg font-semibold mb-2">{name}</h3>
               <p className="text-sm text-gray-200">{description}</p>
@@ -67,7 +69,7 @@ export function ProductItem({ id, name, price, description, images, onAddToCart 
           </div>
         </motion.div>
 
-      </motion.div>
+      </div>
 
       {/* Modal */}
       {showModal && (

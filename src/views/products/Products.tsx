@@ -11,7 +11,7 @@ export const Products: React.FC = () => {
 
   return (
     <div className="container px-4 py-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="flex justify-around gap-4 flex-row flex-wrap">
         {products.map((product) => (
           <ProductItem
             key={product.id}

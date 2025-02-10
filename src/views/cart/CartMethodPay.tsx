@@ -80,7 +80,7 @@ export const CartMethodPay = () =>
         <BtnText 
           onClick={() => {
             if(generateQr) setGenerateQr(false)
-            else navigate('/')
+            else navigate('/e-commerce')
           }} 
           hoverBg="#400">
           Cancelar

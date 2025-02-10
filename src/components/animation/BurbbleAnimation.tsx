@@ -23,12 +23,12 @@ export const BubbleAnimation = () => {
   const [bubbles, setBubbles] = useState<Bubble[]>([])
 
   useEffect(() => {
-    const newBubbles = Array.from({ length: 30 }, (_, i) => ({
+    const newBubbles = Array.from({ length: 25 }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
-      size: Math.random() * 30 + 20, // Increased size
+      size: Math.random() * 30 + 40, // Increased size
       color: pinkShades[Math.floor(Math.random() * pinkShades.length)],
-      delay: Math.random() * 1, // Increased delay variation
+      delay: Math.random() - 10, // Increased delay variation
     }))
     setBubbles(newBubbles)
   }, [])
