@@ -33,16 +33,16 @@ export const HeadHome = () =>
               <Link to={'/main'} className={classNav}>
                 Productos
               </Link>
-              <Link to={'/about'} className={classNav}>
+              <Link to={'/main'} className={classNav}>
                 ¿Quienes somos?
               </Link>
               <Link to={'/e-commerce'} className={classNav}>
                 Ecommerce
               </Link>
-              <Link to={'/sustainability'} className={classNav}>
+              <Link to={'/main'} className={classNav}>
                 Sostenibilidad
               </Link>
-              <Link to={'/contacts'} className={classNav}>
+              <Link to={'/main'} className={classNav}>
                 Contactanos
               </Link>
               <CustomSelect 
