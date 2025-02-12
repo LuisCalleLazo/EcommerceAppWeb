@@ -23,7 +23,7 @@ export function ProductItem({ id, name, price, description, images, onAddToCart 
 
   const handleCardClick = () => {
     dispatch(setSelectedProduct({ id, name, price, description, images, qualification: 12 }))
-    navigate("product-detail")
+    navigate("/e-commerce/product-detail")
   }
 
   return (

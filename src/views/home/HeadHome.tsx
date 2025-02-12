@@ -22,7 +22,7 @@ export const HeadHome = () =>
   const classNav = "text-gray-700 hover:text-pink-400 w-[140px] h-14 text-sm font-medium hover:border-b items-center flex text-center justify-center";
   return(
     <>
-      <header className="bg-white shadow-pink-100 shadow-2xl">
+      <header className="bg-gradient-to-r from-orange-100 to-pink-100">
         <div className="px-10 mx-auto">
           <div className="flex items-center justify-between h-20">
             <div className="flex-shrink-0">
@@ -31,19 +31,19 @@ export const HeadHome = () =>
 
             <nav className="space-x-8 h-16 flex items-center">
               <Link to={'/main'} className={classNav}>
-                Productos
+                Home
               </Link>
-              <Link to={'/main'} className={classNav}>
+              <Link to={'/about'} className={classNav}>
                 ¿Quienes somos?
+              </Link>
+              <Link to={'/sustantibility'} className={classNav}>
+                Sostenibilidad
+              </Link>
+              <Link to={'/contacts'} className={classNav}>
+                Contactanos
               </Link>
               <Link to={'/e-commerce'} className={classNav}>
                 Ecommerce
-              </Link>
-              <Link to={'/main'} className={classNav}>
-                Sostenibilidad
-              </Link>
-              <Link to={'/main'} className={classNav}>
-                Contactanos
               </Link>
               <CustomSelect 
                 value={selectedValue} 

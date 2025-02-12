@@ -4,5 +4,7 @@ export * from './dashboard/LayoutDashboard';
 export * from './products/ProductsView';
 export * from './cart/CartView';
 export * from './home/MainHome';
-export * from './home/ContactsHome';
 export * from './products/ProductDetailView';
+export * from './contact/ContactView';
+export * from './about/AboutView';
+export * from './sustainability/SustainabilityView';

@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useSelector } from "react-redux"
 import logo from "../../assets/logo2.png"
 import { motion } from "framer-motion"
@@ -99,9 +99,9 @@ export const HeadDashboard = () => {
       <nav className="container mx-auto px-4 py-3">
         <ul className="flex space-x-6 text-pink-700">
           <li>
-            <a href="#" className="hover:text-pink-900 transition-colors">
+            <Link to={"/e-commerce"} className="hover:text-pink-900 transition-colors">
               Todos los productos
-            </a>
+            </Link>
           </li>
           <li>
             <a href="#" className="hover:text-pink-900 transition-colors">
