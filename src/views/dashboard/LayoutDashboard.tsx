@@ -6,7 +6,7 @@ export const LayoutDashboard = ({ children }: { children: ReactNode }) => {
     <div className="h-screen flex flex-col">
       <HeadDashboard />
 
-      <div className="h-[83vh] flex flex-row">
+      <div className="h-[80vh] flex flex-row">
         {children}
       </div>
     </div>

@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { HeadHome } from "./HeadHome";
+import { FooterHome } from "./FooterHome";
 // import { Register } from "../InitSession/Register";
 
 interface HomeLayoutProp
@@ -16,6 +17,7 @@ export const HomeLayout = ({children} : HomeLayoutProp) =>
       <div>
         {children}
       </div>
+      <FooterHome />
     </div>
  ); 
 }
