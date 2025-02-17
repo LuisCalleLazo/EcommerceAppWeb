@@ -1,4 +1,6 @@
-import { Products } from "../products/Products";
+// import { Products } from "../products/Products";
+import { SubTitle } from "../../components";
+import { ProductsCarousel } from "../products/ProductsCarousel";
 import { CarouselHome } from "./CarouselHome";
 
 
@@ -8,14 +10,14 @@ export const MainHome = () =>
     <>
       <div>
         <CarouselHome />
-        <div className="px-20 pt-10">
-          <h2 className=" border-t-2 border-orange-400 border-b-2 py-3 font-bold text-left pl-10 text-pink-700">
-            PRODUCTOS DESTACADOS
-          </h2>
-        </div>
-        <div className="flex justify-center">
-          <Products />
-        </div>
+        <SubTitle text="PRODUCTOS DESTACADOS"/>
+        <ProductsCarousel />
+        <SubTitle text="MAS VENDIDOS"/>
+        <ProductsCarousel />
+        <SubTitle text="TODOS LOS PRODUCTOS"/>
+        <ProductsCarousel />
+        <SubTitle text="EN OFERTA"/>
+        <ProductsCarousel />
       </div>
     </>
   );

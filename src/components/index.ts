@@ -16,3 +16,4 @@ export * from './button/BtnHoverable';
 export * from './navigation/NavItem';
 export * from './select/CustomSelect';
 export * from './animation/BurbbleAnimation';
+export * from './text/SubTitle';
