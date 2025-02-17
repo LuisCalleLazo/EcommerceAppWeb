@@ -39,12 +39,12 @@ export const HeadHome = () => {
 
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="hidden-1100 p-2 text-gray-600 hover:text-pink-400 transition-colors"
+            className="hidden-head p-2 text-gray-600 hover:text-pink-400 transition-colors"
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
 
-          <nav className="hidden flex-1100 h-16 items-center justify-end space-x-6">
+          <nav className="hidden flex-head h-16 items-center justify-end space-x-6">
             <NavLink to="/main">Home</NavLink>
             <NavLink to="/about">¿Quienes somos?</NavLink>
             <NavLink to="/sustantibility">Sostenibilidad</NavLink>
@@ -57,7 +57,7 @@ export const HeadHome = () => {
 
         {/* Mobile Navigation */}
         <div
-          className={`hidden-1100 fixed inset-0 bg-black/20 backdrop-blur-sm transition-opacity duration-300 z-100 ${
+          className={`hidden-head fixed inset-0 bg-black/20 backdrop-blur-sm transition-opacity duration-300 z-100 ${
             isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
         >

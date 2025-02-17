@@ -5,7 +5,7 @@ import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from "lucide-react"
 export const FooterHome = () => {
 
   return (
-    <footer className="bg-gradient-to-r from-pink-100 to-pink-200 text-pink-800">
+    <footer className=" text-pink-800">
       <div className="container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>

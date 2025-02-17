@@ -29,7 +29,7 @@ export const ContactView = () => {
   }
 
   return (
-    <div className="min-h-screen py-12">
+    <div className="min-h-screen py-12 bg-gradient-to-r from-orange-100 to-pink-100">
       <div className="container mx-auto px-4">
         <motion.h1
           className="text-4xl font-bold text-pink-800 text-center mb-8"

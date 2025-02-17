@@ -16,8 +16,6 @@ export const MainHome = () =>
         <ProductsCarousel />
         <SubTitle text="TODOS LOS PRODUCTOS"/>
         <ProductsCarousel />
-        <SubTitle text="EN OFERTA"/>
-        <ProductsCarousel />
       </div>
     </>
   );

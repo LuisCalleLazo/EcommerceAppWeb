@@ -54,15 +54,15 @@
 }
 
 @layer utilities {
-  .flex-1100 {
-    @media (min-width: 1100px) {
+  .flex-head {
+    @media (min-width: 900px) {
       display: flex;
     }
   }
 
-  .hidden-1100
+  .hidden-head
   {
-    @media (min-width: 1100px) {
+    @media (min-width: 900px) {
       display: none;
     }
   }

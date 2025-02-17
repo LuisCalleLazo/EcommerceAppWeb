@@ -14,7 +14,7 @@ export const HomeLayout = ({children} : HomeLayoutProp) =>
  return (
     <div className="bg-gradient-to-r from-orange-100 to-pink-100">
       <HeadHome />
-      <div>
+      <div className="bg-white">
         {children}
       </div>
       <FooterHome />
