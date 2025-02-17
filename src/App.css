@@ -53,3 +53,17 @@
    100% {inset:0    ;transform: rotate(90deg)}
 }
 
+@layer utilities {
+  .flex-1100 {
+    @media (min-width: 1100px) {
+      display: flex;
+    }
+  }
+
+  .hidden-1100
+  {
+    @media (min-width: 1100px) {
+      display: none;
+    }
+  }
+}

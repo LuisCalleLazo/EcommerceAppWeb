@@ -13,7 +13,7 @@ export const AboutView = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Sobre Comex
+          Sobre Beuty Falabella
         </motion.h1>
 
         <div className="grid md:grid-cols-2 gap-12 items-center mb-12">

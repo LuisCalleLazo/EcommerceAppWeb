@@ -2,10 +2,12 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/logo2.png"
 import { CustomSelect } from "../../components";
 import { useState } from "react";
+import { Menu, X } from "lucide-react";
+
 
 export const HeadHome = () =>
 {
-  
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const flags = [
     { id: "1", label: "La Paz", icon: "bi bi-flag-fill" },
     { id: "2", label: "Cochabamba", icon: "bi bi-flag-fill"  },
@@ -19,42 +21,68 @@ export const HeadHome = () =>
   ]
 
   const [selectedValue, setSelectedValue] = useState("1");
-  const classNav = "text-gray-700 hover:text-pink-400 w-[140px] h-14 text-sm font-medium hover:border-b items-center flex text-center justify-center";
+  const classNav = "text-gray-700 hover:text-pink-400 w-full h-14 text-sm font-medium hover:border-b items-center flex text-center justify-center transition-colors";
+
   return(
     <>
-      <header className="bg-gradient-to-r from-orange-100 to-pink-100">
-        <div className="px-10 mx-auto">
-          <div className="flex items-center justify-between h-20">
-            <div className="flex-shrink-0">
-              <img src={logo || "/placeholder.svg"} alt="Comex Logo" className="h-[90px] w-[240px] opacity-90 hue-rotate-[300deg]" />
-            </div>
+    <header className="bg-gradient-to-r from-orange-100 to-pink-100">
+      <div className="px-4">
+        <div className="flex items-center justify-between h-16 sm:h-20">
+          <div className="flex-shrink-0">
+            <img 
+              src={logo} 
+              alt="Comex Logo" 
+              className="h-[60px] md:h-[90px] w-[180px] md:w-[240px] opacity-90 hue-rotate-[300deg]" 
+            />
+          </div>
 
-            <nav className="space-x-8 h-16 flex items-center">
-              <Link to={'/main'} className={classNav}>
-                Home
-              </Link>
-              <Link to={'/about'} className={classNav}>
-                ¿Quienes somos?
-              </Link>
-              <Link to={'/sustantibility'} className={classNav}>
-                Sostenibilidad
-              </Link>
-              <Link to={'/contacts'} className={classNav}>
-                Contactanos
-              </Link>
-              <Link to={'/e-commerce'} className={classNav}>
-                Ecommerce
-              </Link>
-              <CustomSelect 
+          {/* Mobile Menu Button */}
+          <button 
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="hidden-1100 p-2 text-gray-600 hover:text-pink-400 transition-colors"
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+
+          {/* Desktop Navigation */}
+          <nav 
+            className="hidden flex-1100 h-16 items-center justify-end">
+            <Link to="/main" className={classNav}>Home</Link>
+            <Link to="/about" className={classNav}>¿Quienes somos?</Link>
+            <Link to="/sustantibility" className={classNav}>Sostenibilidad</Link>
+            <Link to="/contacts" className={classNav}>Contactanos</Link>
+            <Link to="/e-commerce" className={classNav}>Ecommerce</Link>
+            
+            <CustomSelect 
                 value={selectedValue} 
                 options={flags} 
                 onChange={setSelectedValue} 
                 widthMax="170px"
                 />
-            </nav>
-          </div>
+          </nav>
         </div>
-      </header>
+
+        {/* Mobile Navigation */}
+        <div className={`hidden-1100 ${isMenuOpen ? 'block' : 'hidden'}`}>
+          <nav className="flex flex-col py-4 space-y-2 border-t border-gray-200">
+            <Link to="/main" className={classNav}>Home</Link>
+            <Link to="/about" className={classNav}>¿Quienes somos?</Link>
+            <Link to="/sustantibility" className={classNav}>Sostenibilidad</Link>
+            <Link to="/contacts" className={classNav}>Contactanos</Link>
+            <Link to="/e-commerce" className={classNav}>Ecommerce</Link>
+            
+            <div className="flex justify-center">
+              <CustomSelect 
+                  value={selectedValue} 
+                  options={flags} 
+                  onChange={setSelectedValue} 
+                  widthMax="170px"
+                  />
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
     </>
   );
 }
