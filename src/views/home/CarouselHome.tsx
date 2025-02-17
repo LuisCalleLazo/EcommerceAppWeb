@@ -21,62 +21,77 @@ const slides = [
   },
 ]
 
-export const CarouselHome = () => 
-{
+export const CarouselHome = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [isTransitioning, setIsTransitioning] = useState(false)
+
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length)
+      nextSlide()
     }, 5000)
     return () => clearInterval(timer)
   }, [])
 
   const previousSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
+    if (!isTransitioning) {
+      setIsTransitioning(true)
+      setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
+      setTimeout(() => setIsTransitioning(false), 500)
+    }
   }
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length)
+    if (!isTransitioning) {
+      setIsTransitioning(true)
+      setCurrentSlide((prev) => (prev + 1) % slides.length)
+      setTimeout(() => setIsTransitioning(false), 500)
+    }
   }
 
   return (
-    <div className="relative w-full overflow-hidden h-[500px]">
-      <div
-        className="flex transition-transform duration-500 ease-out h-full"
-        style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-      >
-        {slides.map((slide) => (
-          <div key={slide.id} className="w-full flex-shrink-0 h-full">
-            <img src={slide.image || "/placeholder.svg"} alt={slide.alt} className="w-full h-full object-cover" />
-          </div>
-        ))}
-      </div>
-      
-      <BtnIcon 
+    <div className="relative w-full overflow-hidden h-[200px] sm:h-[300px] md:h-[400px] lg:h-[500px]">
+      {slides.map((slide, index) => (
+        <div
+          key={slide.id}
+          className={`absolute top-0 left-0 w-full h-full transition-opacity duration-500 ease-in-out ${
+            index === currentSlide ? "opacity-100" : "opacity-0"
+          }`}
+          style={{
+            backgroundImage: `url(${slide.image || "/placeholder.svg"})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
+      ))}
+
+      <BtnIcon
         OnClick={previousSlide}
         icon="bi bi-chevron-left"
-        className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full p-2 hover:bg-gray-200"
+        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 rounded-full p-1 sm:p-2 transition-colors z-10"
       />
-      
-      <BtnIcon 
+
+      <BtnIcon
         OnClick={nextSlide}
         icon="bi bi-chevron-right"
-        className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full p-2 hover:bg-gray-200"
+        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 rounded-full p-1 sm:p-2 transition-colors z-10"
       />
 
       {/* Slide indicators */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+      <div className="absolute bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 flex gap-1 sm:gap-2 z-10">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all ${
-              currentSlide === index ? "bg-white scale-125" : "bg-white/50"
+            className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all ${
+              currentSlide === index ? "bg-orange-200 scale-125" : "bg-white/50"
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
       </div>
+
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-orange-300/30 to-transparent pointer-events-none" />
     </div>
   )
 }
