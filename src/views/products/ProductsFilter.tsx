@@ -61,20 +61,22 @@ export const ProductsFilter = () => {
   }
 
   return (
-    <div className="flex flex-col min-w-[150px] max-w-[300px] p-4 bg-white shadow-lg rounded-lg">
+    <div className="flex-col w-full lg:min-w-[150px] lg:max-w-[300px] bg-white rounded-lg">
       {ecommerceFilters.map((category) => (
-        <div key={category.id} className="mb-6">
+        <div key={category.id} className="border-b last:border-b-0">
           <button
             onClick={() => toggleCategory(category.id)}
-            className="flex justify-between items-center w-full py-2 text-left text-gray-800 hover:text-[var(--tx-color2)] transition-colors duration-200"
+            className="flex justify-between items-center w-full p-4 text-left text-gray-800 hover:text-pink-600 transition-colors duration-200"
           >
             <span className="font-medium">{category.name}</span>
             {openCategories[category.id] ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
           </button>
 
           {openCategories[category.id] && (
-            <div className="space-y-2 mt-3 pl-2">
-              {category.options.map((option) => renderFilterOption(category, option))}
+            <div className="space-y-3 px-4 pb-4">
+              {category.options.map((option) => (
+                <div key={option.id}>{renderFilterOption(category, option)}</div>
+              ))}
             </div>
           )}
         </div>

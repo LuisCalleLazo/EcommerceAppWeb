@@ -59,7 +59,6 @@
       display: flex;
     }
   }
-
   .hidden-head
   {
     @media (min-width: 900px) {
