@@ -19,7 +19,7 @@ export const CartMethodPay = () =>
   const totalAmount = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   return (
-    <div className="w-full md:w-[30%] mt-8 md:mt-0 relative overflow-auto h-[77vh] px-3">
+    <div className="w-full md:w-[30%] mt-8 md:mt-0 relative overflow-auto md:h-[77vh] px-3">
       
       {/* GENERACION DE QR */}
       {

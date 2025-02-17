@@ -11,7 +11,7 @@ export const CartView: React.FC = () => {
         Carrito de compras
       </h1>
 
-      <div className="flex flex-col md:flex-row justify-between">
+      <div className="flex md:flex-row justify-between flex-col-reverse">
         {/* Productos del carrito */}
        <CartItems />
 
