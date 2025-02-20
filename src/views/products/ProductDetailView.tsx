@@ -13,7 +13,7 @@ export const ProductDetailView = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [activeTab, setActiveTab] = useState("description")
   const navigate = useNavigate()
-    const { addProductToCart } = useCartStore();
+  const { addProductToCart } = useCartStore()
 
   const selectedProduct = useSelector((state: RootState) => state.productDetail.selectedProduct)
 
@@ -35,18 +35,18 @@ export const ProductDetailView = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 p-4">
-      <div className="mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
-        <div className="flex flex-col md:flex-row p-6">
+      <div className="mx-auto max-w-7xl bg-white rounded-lg shadow-lg overflow-hidden">
+        <div className="flex flex-col md:flex-row p-4 md:p-6">
           {/* Left column: Images */}
-          <div className="md:w-1/2 flex">
+          <div className="w-full md:w-1/2 flex flex-col md:flex-row relative">
             {/* Thumbnails */}
-            <div className="w-20 flex flex-col gap-2">
+            <div className="order-2 md:order-1 md:w-1/2 flex flex-row md:flex-col gap-2 mt-4 md:mt-0 overflow-x-auto md:overflow-x-visible">
               <BubbleAnimation />
               {images.map((img, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentImageIndex(index)}
-                  className={`w-16 h-16 rounded-md border-2 overflow-hidden ${
+                  className={`flex-shrink-0 w-16 h-16 rounded-md border-2 overflow-hidden ${
                     currentImageIndex === index ? "border-pink-500" : "border-transparent"
                   }`}
                 >
@@ -60,12 +60,14 @@ export const ProductDetailView = () => {
             </div>
 
             {/* Main Image */}
-            <div className="flex-1 relative ml-4">
-              <img
-                src={images[currentImageIndex] || "/placeholder.svg"}
-                alt={`${name} - imagen ${currentImageIndex + 1}`}
-                className="w-full h-auto object-contain"
-              />
+            <div className="order-1 md:order-2 relative flex-1 md:ml-4">
+              <div className="aspect-square">
+                <img
+                  src={images[currentImageIndex] || "/placeholder.svg"}
+                  alt={`${name} - imagen ${currentImageIndex + 1}`}
+                  className="w-full h-full object-contain"
+                />
+              </div>
 
               {images.length > 1 && (
                 <>
@@ -87,9 +89,9 @@ export const ProductDetailView = () => {
           </div>
 
           {/* Right column: Product Info */}
-          <div className="md:w-1/2 md:pl-8 mt-6 md:mt-0 z-40">
-            <h1 className="text-3xl font-bold mb-2">{name}</h1>
-            <p className="text-2xl font-semibold mb-4">Bs. {price.toFixed(2)}</p>
+          <div className="w-full md:w-1/2 md:pl-8 mt-6 md:mt-0">
+            <h1 className="text-2xl md:text-3xl font-bold mb-2">{name}</h1>
+            <p className="text-xl md:text-2xl font-semibold mb-4">Bs. {price.toFixed(2)}</p>
 
             <p className="text-gray-600 mb-6">{description}</p>
 
@@ -106,14 +108,14 @@ export const ProductDetailView = () => {
               </p>
             </div>
 
-            <div className="flex gap-4 mb-6">
-              <button 
+            <div className="flex flex-col sm:flex-row gap-4 mb-6">
+              <button
                 className="flex-1 bg-pink-600 text-white py-3 px-6 rounded-lg hover:bg-pink-700 transition-colors"
                 onClick={() => {
-                  addProductToCart(selectedProduct);
-                  toast.success("Se guardo al carrito");
+                  addProductToCart(selectedProduct)
+                  toast.success("Se guardo al carrito")
                 }}
-                >
+              >
                 Añadir al carrito
               </button>
               <button className="p-3 border border-gray-300 rounded-lg hover:bg-gray-50">
@@ -121,7 +123,7 @@ export const ProductDetailView = () => {
               </button>
             </div>
 
-            <div className="flex gap-4">
+            <div className="flex flex-col sm:flex-row gap-4">
               <button className="flex items-center justify-center gap-2 flex-1 border border-gray-300 py-2 px-4 rounded-lg hover:bg-gray-50">
                 <Share2 className="w-5 h-5" />
                 Compartir
@@ -135,16 +137,16 @@ export const ProductDetailView = () => {
 
         {/* Tabs */}
         <div className="border-t mt-8">
-          <div className="flex border-b">
+          <div className="flex overflow-x-auto">
             {["Descripción", "Ingredientes", "Uso", "Precausiones", "Indicaciones"].map((tab) => (
               <button
                 key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`px-4 py-2 font-semibold hover:cursor-pointer ${
-                  activeTab === tab ? "border-b-2 border-pink-500 text-pink-500" : "text-gray-500"
+                onClick={() => setActiveTab(tab.toLowerCase())}
+                className={`px-4 py-2 whitespace-nowrap font-semibold hover:cursor-pointer ${
+                  activeTab === tab.toLowerCase() ? "border-b-2 border-pink-500 text-pink-500" : "text-gray-500"
                 }`}
               >
-                {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                {tab}
               </button>
             ))}
           </div>
